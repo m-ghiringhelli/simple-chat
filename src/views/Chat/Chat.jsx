@@ -29,6 +29,10 @@ export default function Chat() {
     // as the callback function
     // Don't forget to return a cleanup method (`unsubscribe`)
     // from this useEffect!
+    subscribe(handleMessageReceived);
+    return function cleanup() {
+      unsubscribe();
+    }
   }, []);
 
   return (
